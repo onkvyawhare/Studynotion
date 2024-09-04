@@ -5,8 +5,11 @@ import HighlightText from "../components/core/Homepage/HighlightText";
 import CTAButton from "../components/core/Homepage/Button";
 import Banner from "../assets/Images/banner.mp4"
 import CodeBlocks from "../components/core/Homepage/CodeBlocks";
-import TimelineSection from "../components/TimelineSection";
+import TimelineSection from "../components/core/Homepage/TimeslineSection";
 import LearninglanSection from "../components/core/Homepage/LearninglanSection";
+import InstructorSection from "../components/core/Homepage/InstructorSection";
+import Footer from "../components/Common/Footer"
+import ExploreMore from "../components/core/Homepage/ExploreMore";
 
 const Home=()=>{
    return(
@@ -123,7 +126,8 @@ const Home=()=>{
             backgroundGradient={<div className="codeblock2 absolute"></div>}
           />
         </div>
-
+            {/* Explore Section */}
+        <ExploreMore />
 
        </div>
 
@@ -132,7 +136,7 @@ const Home=()=>{
        <div className="bg-pure-greys-5 text-richblack-700">
          <div className="homepage_bg h-[310px]">
            <div className="w-11/12 max-w-maxContent flex flex-col items-center gap-1 mx-auto">
-            <div className="h-[150px]"></div>
+            <div className="h-[200px]"></div>
             <div className="flex flex-row gap-7 text-white">
             <CTAButton active={true} linkto={"/signup"}>
                 <div className="flex items-center gap-2">
@@ -178,8 +182,16 @@ const Home=()=>{
        </div>
 
 
+       <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+        {/* Become a instructor section */}
+        <InstructorSection />
+
+       
+    </div>
 
 
+
+    <Footer />
 
     </div>
 

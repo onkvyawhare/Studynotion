@@ -1,11 +1,9 @@
-
-
 import React from "react";
-import TimeLineImage from "../assets/Images/TimelineImage.png";
-import Logo1 from "../assets/TimeLineLogo/Logo1.svg";
-import Logo2 from "../assets/TimeLineLogo/Logo2.svg";
-import Logo3 from "../assets/TimeLineLogo/Logo3.svg";
-import Logo4 from "../assets/TimeLineLogo/Logo4.svg";
+import TimeLineImage from "../../../assets/Images/TimelineImage.png";
+import Logo1 from "../../../assets/TimeLineLogo/Logo1.svg";
+import Logo2 from "../../../assets/TimeLineLogo/Logo2.svg";
+import Logo3 from "../../../assets/TimeLineLogo/Logo3.svg";
+import Logo4 from "../../../assets/TimeLineLogo/Logo4.svg";
 
 const TimeLine = [
     {
@@ -49,6 +47,11 @@ const TimelineSection = () => {
                   <p className="text-base">{ele.Description}</p>
                 </div>
               </div>
+              <div
+                  className={`hidden ${
+                    TimeLine.length - 1 === i ? "hidden" : "lg:block"
+                  }  h-14 border-dotted border-r border-richblack-100 bg-richblack-400/0 w-[26px]`}
+                ></div>
                
             </div>
           );
