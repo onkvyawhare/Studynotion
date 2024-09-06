@@ -186,6 +186,8 @@ const Home=()=>{
         {/* Become a instructor section */}
         <InstructorSection />
 
+          
+
        
     </div>
 
