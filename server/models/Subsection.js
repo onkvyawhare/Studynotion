@@ -1,7 +1,7 @@
-const moongoose=require("mongoose");
+const mongoose=require("mongoose");
 
 
-const SubSectionSchmea=new moongoose.Schema({
+const SubSectionSchmea=new mongoose.Schema({
     title:{
         type:String,
     },
@@ -20,4 +20,4 @@ const SubSectionSchmea=new moongoose.Schema({
     }
 });
 
-module.exports=moongoose.model("SubSection",SubSectionSchmea)
+module.exports=mongoose.model("SubSection",SubSectionSchmea)

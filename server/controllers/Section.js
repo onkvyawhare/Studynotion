@@ -1,6 +1,6 @@
 const Section=require("../models/Section");
 const Course=require("../models/Course");
-const SubSection=require("./Subsection");
+const SubSection=require("./SubSection");
 
 
 exports.createSection=async (req,res)=>{
