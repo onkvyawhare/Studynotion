@@ -1,7 +1,7 @@
 const Course = require("../models/Course")
 const Category = require("../models/Category")
 const Section = require("../models/Section")
-const SubSection = require("../models/SubSection")
+const SubSection = require("../models/Subsection")
 const User = require("../models/User")
 const { uploadImageToCloudinary } = require("../utils/imageuploader")
 const CourseProgress = require("../models/CourseProgress")
@@ -12,7 +12,7 @@ exports.createCourse = async (req, res) => {
     // Get user ID from request object
     const userId = req.user.id
 
-    // Get all required fields from request body
+    // Get all required fields from request bodye
     let {
       courseName,
       courseDescription,
