@@ -33,6 +33,8 @@ const {
 // Sub-Sections Controllers Import
 const {
   createSubSection,
+  updateSubSection,
+  deleteSubSection,
   
  
 } = require("../controllers/SubSection")
@@ -64,9 +66,9 @@ router.post("/updateSection", auth, isInstructor, updateSection)
 // Delete a Section
 router.post("/deleteSection", auth, isInstructor, deleteSection)
 // Edit Sub Section
-// router.post("/updateSubSection", auth, isInstructor, updateSubSection)
+router.post("/updateSubSection", auth, isInstructor, updateSubSection)
 // Delete Sub Section
-// router.post("/deleteSubSection", auth, isInstructor, deleteSubSection)
+router.post("/deleteSubSection", auth, isInstructor, deleteSubSection)
 // Add a Sub Section to a Section
 router.post("/addSubSection", auth, isInstructor, createSubSection)
 // Get all Registered Courses
