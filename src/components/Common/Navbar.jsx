@@ -9,7 +9,26 @@ import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiconnector"
 import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
- import ProfileDropdown from "../core/Auth/ProfileDropdown"
+import ProfileDropdown from "../core/Auth/ProfileDropdown"
+
+// const subLinks = [
+//   {
+//     title: "Python",
+//     link: "/catalog/python",
+//   },
+//   {
+//     title: "javascript",
+//     link: "/catalog/javascript",
+//   },
+//   {
+//     title: "web-development",
+//     link: "/catalog/web-development",
+//   },
+//   {
+//     title: "Android Development",
+//     link: "/catalog/Android Development",
+//   },
+// ];
 
 function Navbar() {
   const { token } = useSelector((state) => state.auth)
@@ -21,7 +40,7 @@ function Navbar() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       setLoading(true)
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
@@ -70,7 +89,7 @@ function Navbar() {
                         <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
                         {loading ? (
                           <p className="text-center">Loading...</p>
-                        ) : (subLinks && subLinks.length) ? (
+                        ) : subLinks.length ? (
                           <>
                             {subLinks
                               ?.filter(
