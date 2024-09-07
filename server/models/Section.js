@@ -8,7 +8,7 @@ const sectionSchmea=new moongoose.Schema({
     subSection:{
         type:moongoose.Schema.Types.ObjectId,
         required:true,
-        ref:"Subsection"
+        ref:"SubSection"
     }
    
 });
