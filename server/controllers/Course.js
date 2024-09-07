@@ -8,7 +8,7 @@ const CourseProgress = require("../models/CourseProgress")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
 
 
-//createcourse handler
+//createcourse handler function
 
 exports.createCourse = async (req, res) => {
     try {
