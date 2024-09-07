@@ -21,17 +21,22 @@ function Navbar() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    ;(async () => {
-      setLoading(true)
+    (async () => {
+      setLoading(true);
       try {
-        const res = await apiConnector("GET", categories.CATEGORIES_API)
-        setSubLinks(res.data.data)
+        const res = await apiConnector("GET", categories.CATEGORIES_API);
+        if (res?.data?.data) {
+          setSubLinks(res.data.data);
+        } else {
+          console.error("Unexpected response structure:", res);
+        }
       } catch (error) {
-        console.log("Could not fetch Categories.", error)
+        console.error("Could not fetch Categories.", error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false)
-    })()
-  }, [])
+    })();
+  }, []);
 
    console.log("sub links", subLinks)
 
@@ -73,9 +78,6 @@ function Navbar() {
                         ) : (subLinks && subLinks.length) ? (
                           <>
                             {subLinks
-                              ?.filter(
-                                (subLink) => subLink?.courses?.length > 0
-                              )
                               ?.map((subLink, i) => (
                                 <Link
                                   to={`/catalog/${subLink.name
@@ -86,7 +88,9 @@ function Navbar() {
                                   key={i}
                                 >
                                   <p className="text-black">{subLink.name}</p>
+                                  
                                 </Link>
+                               
                               ))}
                           </>
                         ) : (
