@@ -6,6 +6,7 @@ import OpenRoute from "./components/core/Auth/OpenRoute"
 import Catalog from "./pages/Catalog"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
+import CourseDetails from './pages/CourseDetails';
 // import ForgotPassword from "./pages/ForgotPassword";
 // import UpdatePassword from "./pages/UpdatePassword";
 
@@ -19,8 +20,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
       
        <Route path="catalog/:catalogName" element={<Catalog/>} />
-      {/* <Route path="courses/:courseId" element={<CourseDetails/>} /> 
-       */}
+       <Route path="courses/:courseId" element={<CourseDetails/>} /> 
+       
       <Route
           path="signup"
           element={

@@ -9,50 +9,58 @@ const contactUsRoute = require("./routes/Contactus");
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const {cloudinaryConnect } = require("./config/Clodinary");
+const { cloudinaryConnect } = require("./config/Clodinary");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
-//database connect
+// Database connection
 database.connect();
-//middlewares
+
+// Middleware setup
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-	cors({
-		origin:"http://localhost:3000",
-		credentials:true,
-	})
-)
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 app.use(
-	fileUpload({
-		useTempFiles:true,
-		tempFileDir:"/tmp",
-	})
-)
-//cloudinary connection on
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp",
+  })
+);
+
+// Cloudinary connection
 cloudinaryConnect();
 
-//routes
+// Routes
 app.use("/auth", userRoutes);
 app.use("/profile", profileRoutes);
 app.use("/course", courseRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/reach", contactUsRoute);
 
-//def route
-
+// Default route
 app.get("/", (req, res) => {
-	return res.json({
-		success:true,
-		message:'Your server is up and running....'
-	});
+  return res.json({
+    success: true,
+    message: 'Your server is up and running....',
+  });
 });
 
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+// Start server
 app.listen(PORT, () => {
-	console.log(`App is running at ${PORT}`)
-})
+  console.log(`App is running at http://localhost:${PORT}`);
+});
