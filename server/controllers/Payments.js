@@ -6,6 +6,7 @@ const{courseEnrollmentEmail}=require("../mail/templates/courseEnrollmentEmail");
 const { default: mongoose } = require("mongoose");
 const { paymentSuccessEmail } = require("../mail/templates/paymentSuccessEmail")
 const CourseProgress = require("../models/CourseProgress")
+const crypto = require('crypto');
 
 
 
