@@ -1,4 +1,4 @@
-const BASE_URL = "https://studynotion-q0zj.onrender.com"
+const BASE_URL = "http://localhost:4000"
 
 // AUTH ENDPOINTS
 export const endpoints = {
