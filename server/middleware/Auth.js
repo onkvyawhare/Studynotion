@@ -1,20 +1,23 @@
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
+
 const User = require("../models/User");
 // Configuring dotenv to load environment variables from .env file
-dotenv.config();
+
 
 // This function is used as middleware to authenticate user requests
 
 
 // Auth middleware
+
+
+
 exports.auth = async (req, res, next) => {
   try {
     // Extract token from cookies, body, or headers
     const token = req.cookies.token 
                   || req.body.token 
-                  || req.header("Authorization")?.replace("Bearer ", "");
-    
+                  || (req.header("Authorization") ? req.header("Authorization").replace("Bearer ", "").trim() : "");
+
     // If token is missing, return an error response
     if (!token) {
       return res.status(401).json({
@@ -22,27 +25,27 @@ exports.auth = async (req, res, next) => {
         message: "Token is missing",
       });
     }
-    
+
     // Verify the token
     try {
-      console.log("BEFORE VERIFYING");
+      console.log('Token:', token);
+      console.log('Secret:', process.env.JWT_SECRET);
+
       const decode = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decode);
-      console.log("HERE WE DECODED");
+      console.log('Decoded token:', decode);
       req.user = decode;
     } catch (err) {
-      // Token verification failed
-      console.log(err);
-      console.log(err.message);
+      console.error('Token verification error:', err.message);
       return res.status(401).json({
         success: false,
         message: "Token is invalid",
       });
     }
-    
+
     next();
   } catch (err) {
     // Unexpected error
+    console.error('Unexpected error during token validation:', err.message);
     return res.status(401).json({
       success: false,
       message: "Something went wrong while validating the token",
