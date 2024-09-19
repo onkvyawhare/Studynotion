@@ -1,12 +1,16 @@
 const Course = require("../models/Course")
 const Category = require("../models/Category")
 const Section = require("../models/Section")
-const SubSection=require("../models/SubSection")
+const SubSection=require("../models/SubSection.js")
 const User = require("../models/User")
 const { uploadImageToCloudinary } = require("../utils/imageuploader")
 const CourseProgress = require("../models/CourseProgress")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
 // Function to create a new course
+
+console.log('Current directory:', process.cwd());
+console.log('Files in current directory:', require('fs').readdirSync('.'));
+console.log('Files in models directory:', require('fs').readdirSync('./models'));
 exports.createCourse = async (req, res) => {
   try {
     // Get user ID from request object
