@@ -12,8 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ForgotPassword from "./pages/ForgotPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
-// import About from "./pages/About";
-// import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Dashboard from "./pages/Dashboard";
 import { ACCOUNT_TYPE } from "./utils/constants";
@@ -102,7 +102,7 @@ useEffect(() => {
           }
         />  
 
-    {/* <Route
+    * <Route
           path="/about"
           element={
             
@@ -110,7 +110,7 @@ useEffect(() => {
             
           }
         />
-    <Route path="/contact" element={<Contact />} /> */}
+    <Route path="/contact" element={<Contact />} /> 
 
      {/* Private Route - for Only Logged in User */}
      <Route

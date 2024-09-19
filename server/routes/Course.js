@@ -21,6 +21,7 @@ const {
   showAllCategories,
   createCategory,
   categoryPageDetails,
+  addCourseToCategory,
 } = require("../controllers/Category")
 
 // Sections Controllers Import
@@ -94,6 +95,7 @@ router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 router.post("/createCategory", auth, isAdmin, createCategory)
 router.get("/showAllCategories", showAllCategories)
 router.post("/getCategoryPageDetails", categoryPageDetails)
+router.post("/addCourseToCategory", auth, isInstructor, addCourseToCategory);
 
 // ********************************************************************************************************
 //                                      Rating and Review

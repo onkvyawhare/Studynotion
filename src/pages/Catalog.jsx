@@ -24,6 +24,7 @@ const Catalog = () => {
             const category_id = 
             res?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0]._id;
             setCategoryId(category_id);
+           
         }
         getCategories();
     },[catalogName]);
@@ -45,7 +46,7 @@ const Catalog = () => {
         
     },[categoryId]);
 
-
+console.log(catalogPageData);
     if (loading || !catalogPageData) {
         return (
           <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
@@ -65,14 +66,14 @@ const Catalog = () => {
               <p className="text-sm text-richblack-300">
                 {`Home / Catalog / `}
                 <span className="text-yellow-25">
-                  {catalogPageData?.data?.selectedCategory?.name}
+                  {catalogPageData?.selectedCategory?.name}
                 </span>
               </p>
               <p className="text-3xl text-richblack-5">
-                {catalogPageData?.data?.selectedCategory?.name}
+                {catalogPageData?.selectedCategory?.name}
               </p>
               <p className="max-w-[870px] text-richblack-200">
-                {catalogPageData?.data?.selectedCategory?.description}
+                {catalogPageData?.selectedCategory?.description}
               </p>
             </div>
           </div>

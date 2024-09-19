@@ -1,9 +1,9 @@
 const Course = require("../models/Course")
 const Category = require("../models/Category")
 const Section = require("../models/Section")
-const SubSection = require("../models/Subsection")
+const SubSection = require("../models/SubSection")
 const User = require("../models/User")
-const { uploadImageToCloudinary } = require("../utils/imageuploader")
+const { uploadImageToCloudinary } = require("../utils/imageUploader")
 const CourseProgress = require("../models/CourseProgress")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
 // Function to create a new course
@@ -12,7 +12,7 @@ exports.createCourse = async (req, res) => {
     // Get user ID from request object
     const userId = req.user.id
 
-    // Get all required fields from request bodye
+    // Get all required fields from request body
     let {
       courseName,
       courseDescription,
@@ -486,6 +486,7 @@ exports.deleteCourse = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Server error",
+      
       error: error.message,
     })
   }

@@ -1,9 +1,9 @@
-const moongoose=require("mongoose");
+const mongoose=require("mongoose");
 
 
-const ratingAndReviewSchmea=new moongoose.Schema({
+const ratingAndReviewSchmea=new mongoose.Schema({
     user:{
-        type:moongoose.Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:"User",
     },
@@ -11,9 +11,19 @@ const ratingAndReviewSchmea=new moongoose.Schema({
         type:Number,
         required:true,
     },
+    review: {
+		type: String,
+		required: true,
+	},
+	course: {
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+		ref: "Course",
+		index: true,
+	},
    
 
     
 });
 
-module.exports=moongoose.model("RatingAndReview",ratingAndReviewSchmea)
+module.exports=mongoose.model("RatingAndReview",ratingAndReviewSchmea)

@@ -28,8 +28,8 @@ exports.auth = async (req, res, next) => {
 
     // Verify the token
     try {
-      console.log('Token:', token);
-      console.log('Secret:', process.env.JWT_SECRET);
+    //   console.log('Token:', token);
+    //   console.log('Secret:', process.env.JWT_SECRET);
 
       const decode = jwt.verify(token, process.env.JWT_SECRET);
       console.log('Decoded token:', decode);

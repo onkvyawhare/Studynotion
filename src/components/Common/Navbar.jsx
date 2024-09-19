@@ -78,6 +78,7 @@ function Navbar() {
                         ) : (subLinks && subLinks.length) ? (
                           <>
                             {subLinks
+                              
                               ?.map((subLink, i) => (
                                 <Link
                                   to={`/catalog/${subLink.name
