@@ -10,6 +10,5 @@ const SubSectionSchema = new mongoose.Schema({
 });
 
 // Check if the model already exists in mongoose.models
-const SubSection =mongoose.model('SubSection', SubSectionSchema);
 
-module.exports = SubSection;
+module.exports = mongoose.model("SubSection", SubSectionSchema);
